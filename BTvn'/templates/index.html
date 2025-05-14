@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mã hóa và Giải mã DES</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        .container {
+            width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="file"], input[type="text"], button {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Mã hóa File DES</h2>
+        <form method="POST" action="/encrypt" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="encrypt_file">Chọn file để mã hóa:</label>
+                <input type="file" name="file" id="encrypt_file" required>
+            </div>
+            <div class="form-group">
+                <label for="encrypt_key">Nhập khóa mã hóa (8 ký tự):</label>
+                <input type="text" name="key" id="encrypt_key" minlength="8" maxlength="8" required>
+            </div>
+            <button type="submit">Mã hóa</button>
+        </form>
+
+        <hr>
+
+        <h2>Giải mã File DES</h2>
+        <form method="POST" action="/decrypt" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="decrypt_file">Chọn file đã mã hóa để giải mã:</label>
+                <input type="file" name="file" id="decrypt_file" required>
+            </div>
+            <div class="form-group">
+                <label for="decrypt_key">Nhập khóa giải mã (8 ký tự):</label>
+                <input type="text" name="key" id="decrypt_key" minlength="8" maxlength="8" required>
+            </div>
+            <button type="submit">Giải mã</button>
+        </form>
+    </div>
+</body>
+</html>
